@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 
 import com.telynet.viewExamples.Model.Product;
+import com.telynet.viewExamples.Util.ProductSimulator;
 import com.telynet.viewExamples.View.Utility.ProductAdapter;
 import com.telynet.viewExamples.R;
 
@@ -19,6 +20,7 @@ public class GridActivity extends AppCompatActivity {
     private RecyclerView dataList;
     private ProductAdapter productAdapter;
     private List<Product> productsList;
+    private ProductSimulator productSimulator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,8 @@ public class GridActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dataList = findViewById(R.id.dataList);
 
-        productsList = new LinkedList<Product>();
+        ProductSimulator productSimulator = new ProductSimulator();
+        productsList = productSimulator.createProductoList();
 
         productAdapter = new ProductAdapter(this, productsList);
 
