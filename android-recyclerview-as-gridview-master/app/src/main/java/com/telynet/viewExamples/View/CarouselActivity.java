@@ -7,12 +7,10 @@ import android.os.Bundle;
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.Util.ProductSimulator;
 import com.telynet.viewExamples.R;
+import com.telynet.viewExamples.View.Utility.CarouselAdapter;
 import com.telynet.viewExamples.View.Utility.PageAdapter;
 
 import java.util.List;
-
-import io.github.vejei.carouselview.CarouselAdapter;
-import io.github.vejei.carouselview.CarouselView;
 
 public class CarouselActivity extends AppCompatActivity {
     private CarouselAdapter carouselAdapter;
@@ -29,9 +27,10 @@ public class CarouselActivity extends AppCompatActivity {
         ProductSimulator productSimulator = new ProductSimulator();
         productsList = productSimulator.createProductoList();
 
-        carouselAdapter = new PageAdapter(this, productsList);
-
-        carouselView.setAdapter(carouselAdapter);
+        if(carouselAdapter == null){
+            carouselAdapter = new PageAdapter(this, productsList);
+            carouselView.setAdapter(carouselAdapter);
+        }
     }
 
     @Override

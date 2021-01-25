@@ -17,8 +17,6 @@ import com.telynet.viewExamples.R;
 
 import java.util.List;
 
-import io.github.vejei.carouselview.CarouselAdapter;
-
 public class PageAdapter extends CarouselAdapter<PageAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private List<Product> productsList;
@@ -27,12 +25,6 @@ public class PageAdapter extends CarouselAdapter<PageAdapter.ViewHolder> {
         this.productsList = products;
         this.inflater = LayoutInflater.from(context);
     }
-
-//
-//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = inflater.inflate(R.layout.custom_grid_layout,parent,false);
-//        return new ViewHolder(view);
-//    }
 
     @Override
     public ViewHolder onCreatePageViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -73,13 +65,5 @@ public class PageAdapter extends CarouselAdapter<PageAdapter.ViewHolder> {
                 }
             });
         }
-//private val backgroundImageView = itemView.findViewById<ImageView>(R.id.view_background)
-//private val contentTextView = itemView.findViewById<TextView>(R.id.text_view_content)
-//
-//        fun bind(page: Page) {
-//        backgroundImageView.clipToOutline = true
-//        backgroundImageView.setImageResource(page.imageRes)
-//        contentTextView.text = page.content
-//        }
-        }
+    }
 }
