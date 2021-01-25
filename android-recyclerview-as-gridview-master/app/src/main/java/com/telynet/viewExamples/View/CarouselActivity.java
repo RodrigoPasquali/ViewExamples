@@ -8,7 +8,7 @@ import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.Util.ProductSimulator;
 import com.telynet.viewExamples.R;
 import com.telynet.viewExamples.View.Utility.CarouselAdapter;
-import com.telynet.viewExamples.View.Utility.PageAdapter;
+import com.telynet.viewExamples.View.Utility.CarouselProductAdapter;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class CarouselActivity extends AppCompatActivity {
         productsList = productSimulator.createProductoList();
 
         if(carouselAdapter == null){
-            carouselAdapter = new PageAdapter(this, productsList);
+            carouselAdapter = new CarouselProductAdapter(this, productsList);
             carouselView.setAdapter(carouselAdapter);
         }
     }

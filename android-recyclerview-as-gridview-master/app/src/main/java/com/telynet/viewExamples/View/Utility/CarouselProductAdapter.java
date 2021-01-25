@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,44 +17,46 @@ import com.telynet.viewExamples.R;
 
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+public class CarouselProductAdapter extends CarouselAdapter<CarouselProductAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private List<Product> productsList;
 
-    public ProductAdapter(Context context, List<Product> products){
+    public CarouselProductAdapter(Context context, List<Product> products){
         this.productsList = products;
         this.inflater = LayoutInflater.from(context);
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.custom_grid_layout,parent,false);
+    public ViewHolder onCreatePageViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = inflater.inflate(R.layout.custom_carousel_layout, parent,false);
+        view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindPageViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTitle.setText(productsList.get(position).getTitle());
         holder.tvCode.setText(productsList.get(position).getCode());
-        holder.gridIcon.setImageResource(productsList.get(position).getImage());
+        holder.image.setImageResource(productsList.get(position).getImage());
     }
 
     @Override
-    public int getItemCount() {
+    public int getPageCount() {
         return productsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
         TextView tvCode;
-        ImageView gridIcon;
+        ImageView image;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             tvTitle = itemView.findViewById(R.id.tv_title);
             tvCode = itemView.findViewById(R.id.tv_codes);
-            gridIcon = itemView.findViewById(R.id.iv_product);
+            image = itemView.findViewById(R.id.iv_product);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

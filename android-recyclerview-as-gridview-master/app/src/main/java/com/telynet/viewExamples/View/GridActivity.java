@@ -10,15 +10,14 @@ import android.util.DisplayMetrics;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.Util.ProductSimulator;
-import com.telynet.viewExamples.View.Utility.ProductAdapter;
+import com.telynet.viewExamples.View.Utility.GridProductAdapter;
 import com.telynet.viewExamples.R;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class GridActivity extends AppCompatActivity {
     private RecyclerView dataList;
-    private ProductAdapter productAdapter;
+    private GridProductAdapter gridProductAdapter;
     private List<Product> productsList;
     private ProductSimulator productSimulator;
 
@@ -31,13 +30,13 @@ public class GridActivity extends AppCompatActivity {
         ProductSimulator productSimulator = new ProductSimulator();
         productsList = productSimulator.createProductoList();
 
-        productAdapter = new ProductAdapter(this, productsList);
+        gridProductAdapter = new GridProductAdapter(this, productsList);
 
         int numberColumns = calculateNumberOfColumns(this, 200);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,numberColumns,GridLayoutManager.VERTICAL,false);
         dataList.setLayoutManager(gridLayoutManager);
-        dataList.setAdapter(productAdapter);
+        dataList.setAdapter(gridProductAdapter);
     }
 
     public static int calculateNumberOfColumns(Context context, float columnWidthDp) {

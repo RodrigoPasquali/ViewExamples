@@ -20,7 +20,7 @@ public abstract class CarouselAdapter<VH extends RecyclerView.ViewHolder> extend
 
     @Override
     public final int getItemCount() {
-        return getPageCount() > 1 ? Integer.MAX_VALUE : getPageCount();
+        return getPageCount();
     }
 
     public abstract VH onCreatePageViewHolder(@NonNull ViewGroup parent, int viewType);

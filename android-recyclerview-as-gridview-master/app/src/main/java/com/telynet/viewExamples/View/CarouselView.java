@@ -3,7 +3,6 @@ package com.telynet.viewExamples.View;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -38,6 +37,7 @@ public class CarouselView extends ViewGroup {
     private RecyclerView.AdapterDataObserver dataSetChangeObserver = new RecyclerView.AdapterDataObserver() {
         @Override
         public void onChanged() {
+            /**VER COMO OBTENER ITEM ACTUAL*/
             viewPager2.getCurrentItem();
 //            if (!initialPositionChanged) {
 //                int firstItemPosition = getFirstItemPosition();
@@ -46,10 +46,8 @@ public class CarouselView extends ViewGroup {
 //            }
         }
     };
-    private boolean initialPositionChanged = false;
+
     private int currentPosition;
-    private Handler handler;
-    private Runnable runnable;
 
     private final Rect containerRect = new Rect();
     private final Rect childRect = new Rect();
