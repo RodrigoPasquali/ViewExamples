@@ -1,1 +1,1 @@
-# android-recyclerview-as-gridview
+# Pruebas para la visualizacionde una lista de items
