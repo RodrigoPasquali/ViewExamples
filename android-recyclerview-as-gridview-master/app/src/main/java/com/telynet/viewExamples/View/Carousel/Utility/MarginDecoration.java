@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View.Utility;
+package com.telynet.viewExamples.View.Carousel.Utility;
 
 import android.graphics.Rect;
 import android.view.View;

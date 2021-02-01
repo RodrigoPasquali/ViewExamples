@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View;
+package com.telynet.viewExamples.View.Carousel;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,11 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.Utility.CarouselAdapter;
-import com.telynet.viewExamples.View.Utility.MarginDecoration;
-import com.telynet.viewExamples.View.Utility.PreviewTransformer;
-
-import java.util.concurrent.TimeUnit;
+import com.telynet.viewExamples.View.Carousel.Utility.CarouselAdapter;
+import com.telynet.viewExamples.View.Carousel.Utility.MarginDecoration;
+import com.telynet.viewExamples.View.Carousel.Utility.PreviewTransformer;
 
 public class CarouselView extends ViewGroup {
     private static final String TAG = CarouselView.class.getSimpleName();

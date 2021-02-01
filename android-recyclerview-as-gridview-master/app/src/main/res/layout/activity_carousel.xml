@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.CarouselActivity">
+    tools:context=".View.Carousel.CarouselActivity">
 
 <!--    <io.github.vejei.carouselview.CarouselView-->
 <!--        android:id="@+id/carousel_view"-->
@@ -21,7 +21,7 @@
 <!--        app:layout_constraintRight_toRightOf="parent"-->
 <!--        android:layout_margin="10dp"/>-->
 
-        <com.telynet.viewExamples.View.CarouselView
+        <com.telynet.viewExamples.View.Carousel.CarouselView
             android:id="@+id/carousel_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

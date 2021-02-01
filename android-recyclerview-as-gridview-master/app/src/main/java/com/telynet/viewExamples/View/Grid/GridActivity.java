@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View;
+package com.telynet.viewExamples.View.Grid;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,7 +24,7 @@ public class GridActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_grid);
         dataList = findViewById(R.id.dataList);
 
         ProductSimulator productSimulator = new ProductSimulator();

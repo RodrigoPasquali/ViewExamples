@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View;
+package com.telynet.viewExamples.View.Carousel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.Util.ProductSimulator;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.Utility.CarouselAdapter;
-import com.telynet.viewExamples.View.Utility.CarouselProductAdapter;
+import com.telynet.viewExamples.View.Carousel.Utility.CarouselAdapter;
+import com.telynet.viewExamples.View.Carousel.Utility.CarouselProductAdapter;
 
 import java.util.List;
 
