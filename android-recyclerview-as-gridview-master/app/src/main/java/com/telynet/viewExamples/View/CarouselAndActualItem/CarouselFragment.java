@@ -2,7 +2,6 @@ package com.telynet.viewExamples.View.CarouselAndActualItem;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,19 @@ import com.telynet.viewExamples.View.Utility.GridProductAdapter;
 import java.util.List;
 
 public class CarouselFragment extends Fragment {
+//    private CarouselFragmentListener listener;
+    private ActualProductFragment actualProductFragment;
+    private GridProductAdapter gridProductAdapter;
+
+    public interface CarouselFragmentListener {
+        void onProductSelected(Product product);
+    }
+
+    public CarouselFragment(){};
+
+    public CarouselFragment(ActualProductFragment actualProductFragment) {
+        actualProductFragment = actualProductFragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,23 +40,19 @@ public class CarouselFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
 
         ProductSimulator productSimulator = new ProductSimulator();
         List<Product> productsList = productSimulator.createProductoList();
 
-        GridProductAdapter gridProductAdapter = new GridProductAdapter(getContext(), productsList);
+        CarouselListProductActivity carouselListProductActivity = (CarouselListProductActivity) getActivity();
+        gridProductAdapter = new GridProductAdapter(getContext(), productsList, carouselListProductActivity.getActualProductFragment());
 
-        int numberColumns = calculateNumberOfColumns(getContext(), 200);
-
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext() ,3 ,GridLayoutManager.HORIZONTAL,false);
-//        gridLayoutManager.setSpanCount(5);
-
+//        gridProductAdapter.setCarouselFragmentListener(listener);
+//        gridProductAdapter.setActualProductFragment(actualProductFragment);
 
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-//        LinearLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3, GridLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(gridProductAdapter);
@@ -52,10 +60,26 @@ public class CarouselFragment extends Fragment {
         return view;
     }
 
-    public static int calculateNumberOfColumns(Context context, float columnWidthDp) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        float screenWidthDp = displayMetrics.widthPixels / displayMetrics.density;
-        int noOfColumns = (int) (screenWidthDp / columnWidthDp + 0.5); // +0.5 for correct rounding to int.
-        return noOfColumns;
-    }
+//    public void setActualProductFragment(Fragment actualProductFragment){
+////        actualProductFragment = actualProductFragment;
+//        gridProductAdapter.setActualProductFragment(actualProductFragment);
+//    }
+
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof CarouselFragmentListener) {
+//            listener = (CarouselFragmentListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement FragmentAListener");
+//        }
+//    }
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        listener = null;
+//    }
+
+
 }

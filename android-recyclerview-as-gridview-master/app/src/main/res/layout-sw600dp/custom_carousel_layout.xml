@@ -58,7 +58,7 @@
                 app:layout_constraintVertical_bias="0.155" />
 
             <TextView
-                android:id="@+id/tv_codes"
+                android:id="@+id/tv_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -84,7 +84,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.031"
                 app:layout_constraintStart_toEndOf="@+id/iv_product"
-                app:layout_constraintTop_toBottomOf="@+id/tv_codes"
+                app:layout_constraintTop_toBottomOf="@+id/tv_code"
                 app:layout_constraintVertical_bias="0.052" />
 
             <TextView

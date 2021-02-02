@@ -55,7 +55,7 @@ public class CarouselProductAdapter extends CarouselAdapter<CarouselProductAdapt
             super(itemView);
 
             tvTitle = itemView.findViewById(R.id.tv_title);
-            tvCode = itemView.findViewById(R.id.tv_codes);
+            tvCode = itemView.findViewById(R.id.tv_code);
             image = itemView.findViewById(R.id.iv_product);
 
             itemView.setOnClickListener(new View.OnClickListener() {

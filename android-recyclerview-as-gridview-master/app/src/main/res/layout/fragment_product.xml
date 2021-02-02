@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0FFFF"
-    tools:context=".View.CarouselAndActualItem.ProductFragment">
+    tools:context=".View.CarouselAndActualItem.ActualProductFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
