@@ -1,5 +1,6 @@
 package com.telynet.viewExamples.View.CarouselAndActualItem;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ public class CarouselFragment extends Fragment {
 //    private CarouselFragmentListener listener;
     private ActualProductFragment actualProductFragment;
     private GridProductAdapter gridProductAdapter;
+    CarouselFragmentListener mCallback;
 
     public interface CarouselFragmentListener {
         void onProductSelected(Product product);
@@ -28,8 +30,15 @@ public class CarouselFragment extends Fragment {
 
     public CarouselFragment(){};
 
-    public CarouselFragment(ActualProductFragment actualProductFragment) {
-        actualProductFragment = actualProductFragment;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mCallback = (CarouselFragmentListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
     }
 
     @Override
@@ -47,10 +56,8 @@ public class CarouselFragment extends Fragment {
         List<Product> productsList = productSimulator.createProductoList();
 
         CarouselListProductActivity carouselListProductActivity = (CarouselListProductActivity) getActivity();
-        gridProductAdapter = new GridProductAdapter(getContext(), productsList, carouselListProductActivity.getActualProductFragment());
+        gridProductAdapter = new GridProductAdapter(getContext(), productsList,this);
 
-//        gridProductAdapter.setCarouselFragmentListener(listener);
-//        gridProductAdapter.setActualProductFragment(actualProductFragment);
 
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
@@ -60,26 +67,8 @@ public class CarouselFragment extends Fragment {
         return view;
     }
 
-//    public void setActualProductFragment(Fragment actualProductFragment){
-////        actualProductFragment = actualProductFragment;
-//        gridProductAdapter.setActualProductFragment(actualProductFragment);
-//    }
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof CarouselFragmentListener) {
-//            listener = (CarouselFragmentListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement FragmentAListener");
-//        }
-//    }
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        listener = null;
-//    }
-
+    public void updateMainProduct(Product p){
+        mCallback.onProductSelected(p);
+    }
 
 }

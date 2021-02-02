@@ -23,20 +23,23 @@ import java.util.List;
 public class GridProductAdapter extends RecyclerView.Adapter<GridProductAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private List<Product> productsList;
+    private  Context ctx;
 //    private CarouselFragment.CarouselFragmentListener carouselFragmentListener;
     private Product actualProduct;
-    private ActualProductFragment actualProductFragment;
-
-    public GridProductAdapter(Context context, List<Product> products, ActualProductFragment actualProductFragment){
-        this.productsList = products;
-        this.inflater = LayoutInflater.from(context);
-        this.actualProductFragment = actualProductFragment;
-
-    }
+    private CarouselFragment carouselFragment;
 
     public GridProductAdapter(Context context, List<Product> products){
         this.productsList = products;
         this.inflater = LayoutInflater.from(context);
+     //   this.carouselFragment = carouselFragment;
+//        this.actualProductFragment = actualProductFragment;
+    }
+
+
+    public GridProductAdapter(Context context, List<Product> products, CarouselFragment carouselFragment){
+        this.productsList = products;
+        this.inflater = LayoutInflater.from(context);
+        this.carouselFragment = carouselFragment;
 //        this.actualProductFragment = actualProductFragment;
     }
 
@@ -61,19 +64,11 @@ public class GridProductAdapter extends RecyclerView.Adapter<GridProductAdapter.
         return productsList.size();
     }
 
-//    public void setCarouselFragmentListener(CarouselFragment.CarouselFragmentListener carouselFragmentListener){
-//        carouselFragmentListener = carouselFragmentListener;
-//    }
-
-//    public void setActualProductFragment(Fragment actualProductFragment){
-//        this.actualProductFragment = (ActualProductFragment) actualProductFragment;
-//    }
-
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tvTitle;
         TextView tvCode;
         ImageView gridIcon;
-//        ActualProductFragment fragment = actualProductFragment;
+
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -84,22 +79,10 @@ public class GridProductAdapter extends RecyclerView.Adapter<GridProductAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int a = getAdapterPosition();
-                    Toast.makeText(v.getContext(), "Item: " + getAdapterPosition() + " presionado.", Toast.LENGTH_SHORT).show();
                     actualProduct = productsList.get(getAdapterPosition());
-//                    fragment.updateActualProduct(actualProduct);
-
-//                    actualProductFragment.updateActualProduct(actualProduct);
-                    CarouselListProductActivity carouselListProductActivity = (CarouselListProductActivity) itemView.getContext();
-                    carouselListProductActivity.updateActualProductFragment(actualProduct);
-//                    fragment.updateActualProduct(actualProduct);
-//                    carouselFragmentListener.onProductSelected(productsList.get(getAdapterPosition()));
+                    carouselFragment.updateMainProduct(actualProduct);
                 }
             });
         }
-
-//        public void setActualProductFragment(Fragment actualProductFragmetn){
-//            fragment = actualProductFragment;
-//        }
     }
 }

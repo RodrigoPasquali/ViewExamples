@@ -14,8 +14,15 @@ import com.telynet.viewExamples.R;
 
 public class ActualProductFragment extends Fragment {
     private ImageView productImage;
-    private TextView tvTitle;
+    public TextView tvTitle;
     private TextView tvCode;
+    private  View v;
+    private Product p;
+
+    public ActualProductFragment (){}
+    public ActualProductFragment (Product p){
+        this.p = p;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,17 +34,17 @@ public class ActualProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.custom_carousel_layout, container, false);
-        productImage = view.findViewById(R.id.iv_product);
-        tvTitle = view.findViewById(R.id.tv_title);
-        tvCode = view.findViewById(R.id.tv_code);
+        this.v = view;
+        productImage = v.findViewById(R.id.iv_product);
+        tvTitle = v.findViewById(R.id.tv_title);
+        tvCode = v.findViewById(R.id.tv_code);
 
-        return view;
+        if(p != null){
+            productImage.setImageResource(p.getImage());
+            tvTitle.setText(p.getTitle());
+            tvCode.setText(p.getCode());
+        }
+        return v;
     }
 
-    public void updateActualProduct(Product actualProduct) {
-        productImage.setImageResource(actualProduct.getImage());
-        tvTitle.setText(actualProduct.getTitle());
-        tvCode.setText(actualProduct.getCode());
-
-    }
 }
