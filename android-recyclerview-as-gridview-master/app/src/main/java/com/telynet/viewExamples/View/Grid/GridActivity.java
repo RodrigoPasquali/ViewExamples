@@ -10,33 +10,31 @@ import android.util.DisplayMetrics;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.Util.ProductSimulator;
-import com.telynet.viewExamples.View.Utility.GridProductAdapter;
+import com.telynet.viewExamples.View.Grid.Utility.GridProductAdapter;
 import com.telynet.viewExamples.R;
 
 import java.util.List;
 
 public class GridActivity extends AppCompatActivity {
-    private RecyclerView dataList;
+    private RecyclerView recyclerView;
     private GridProductAdapter gridProductAdapter;
     private List<Product> productsList;
-    private ProductSimulator productSimulator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid);
-        dataList = findViewById(R.id.dataList);
+        recyclerView = findViewById(R.id.dataList);
 
         ProductSimulator productSimulator = new ProductSimulator();
         productsList = productSimulator.createProductoList();
 
-        gridProductAdapter = new GridProductAdapter(this, productsList);
-
         int numberColumns = calculateNumberOfColumns(this, 200);
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,numberColumns,GridLayoutManager.VERTICAL,false);
-        dataList.setLayoutManager(gridLayoutManager);
-        dataList.setAdapter(gridProductAdapter);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        gridProductAdapter = new GridProductAdapter(this, productsList);
+        recyclerView.setAdapter(gridProductAdapter);
     }
 
     public static int calculateNumberOfColumns(Context context, float columnWidthDp) {

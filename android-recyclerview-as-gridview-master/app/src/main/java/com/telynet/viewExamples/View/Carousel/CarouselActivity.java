@@ -15,12 +15,11 @@ import java.util.List;
 public class CarouselActivity extends AppCompatActivity {
     private CarouselAdapter carouselAdapter;
     private List<Product> productsList;
-    private ProductSimulator productSimulator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R .layout.activity_carousel);
+        setContentView(R.layout.activity_carousel);
 
         CarouselView carouselView = findViewById(R.id.carousel_view);
 

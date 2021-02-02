@@ -5,7 +5,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
@@ -33,9 +32,9 @@ public class CarouselListProductActivity extends AppCompatActivity implements Ca
     }
 
     @Override
-    public void onProductSelected(Product p) {
-        productImage.setImageResource(p.getImage());
-        tvTitle.setText(p.getTitle());
-        tvCode.setText(p.getCode());
+    public void onProductSelected(Product product) {
+        productImage.setImageResource(product.getImage());
+        tvTitle.setText(product.getTitle());
+        tvCode.setText(product.getCode());
     }
 }
