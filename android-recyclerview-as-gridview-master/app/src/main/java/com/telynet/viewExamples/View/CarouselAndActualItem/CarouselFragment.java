@@ -63,7 +63,7 @@ public class CarouselFragment extends Fragment {
         return view;
     }
 
-    public void updateMainProduct(Product p){
-        mCallback.onProductSelected(p);
+    public void updateMainProduct(Product product){
+        mCallback.onProductSelected(product);
     }
 }

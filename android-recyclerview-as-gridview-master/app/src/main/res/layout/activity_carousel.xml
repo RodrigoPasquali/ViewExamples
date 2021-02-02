@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".View.Carousel.CarouselActivity">
 
-<!--    <io.github.vejei.carouselview.CarouselView-->
-<!--        android:id="@+id/carousel_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:carouselMargin="10dp"-->
-<!--        app:carouselMode="preview"-->
-<!--        app:carouselPreviewOffset="30dp"-->
-<!--        app:carouselPreviewSide="sides"-->
-<!--        app:carouselPreviewSideBySideStyle="scale"-->
-<!--        app:layout_constraintBottom_toTopOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        android:layout_margin="10dp"/>-->
-
         <com.telynet.viewExamples.View.Carousel.CarouselView
             android:id="@+id/carousel_view"
             android:layout_width="match_parent"
