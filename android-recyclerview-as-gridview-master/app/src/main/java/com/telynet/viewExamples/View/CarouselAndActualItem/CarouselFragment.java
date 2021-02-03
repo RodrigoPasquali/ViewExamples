@@ -52,7 +52,6 @@ public class CarouselFragment extends Fragment {
         ProductSimulator productSimulator = new ProductSimulator();
         List<Product> productsList = productSimulator.createProductoList();
 
-        CarouselListProductActivity carouselListProductActivity = (CarouselListProductActivity) getActivity();
         carouselAndActualItemAdapter = new CarouselAndActualItemAdapter(getContext(), productsList,this);
 
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
