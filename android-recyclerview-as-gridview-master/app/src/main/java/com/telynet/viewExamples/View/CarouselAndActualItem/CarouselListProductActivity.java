@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
 import com.telynet.viewExamples.View.Grid.GridActivity;
+import com.telynet.viewExamples.View.ViewTypeLayout;
 
 public class CarouselListProductActivity extends AppCompatActivity implements CarouselFragment.CarouselFragmentListener {
     private CarouselFragment carouselFragment;
@@ -63,12 +64,14 @@ public class CarouselListProductActivity extends AppCompatActivity implements Ca
             case R.id.gridViewOption:
 //                finish();
                 startActivityForResult(intent, 0);
+                intent.putExtra("viewType", ViewTypeLayout.GRID_VIEW);
                 overridePendingTransition(0,0);
 
                 break;
 
             case R.id.carouselViewOption:
 //                finish();
+                intent.putExtra("viewType", ViewTypeLayout.CAROUSEL_VIEW);
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
 

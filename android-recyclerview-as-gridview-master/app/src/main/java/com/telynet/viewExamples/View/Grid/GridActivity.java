@@ -47,7 +47,22 @@ public class GridActivity extends AppCompatActivity {
         recyclerViewContainer = findViewById(R.id.recycler_view_container);
         carouselContainer = findViewById(R.id.carousel_container);
 
-        carouselContainer.setVisibility(View.GONE);
+        try {
+            ViewTypeLayout viewTypeReceived = (ViewTypeLayout) getIntent().getExtras().getSerializable("viewType");
+            if(viewTypeReceived == ViewTypeLayout.GRID_VIEW){
+                recyclerViewContainer.setVisibility(View.VISIBLE);
+                carouselContainer.setVisibility(View.GONE);
+            } else {
+                recyclerViewContainer.setVisibility(View.GONE);
+                carouselContainer.setVisibility(View.VISIBLE);
+            }
+        } catch (Exception e) {
+            carouselContainer.setVisibility(View.GONE);
+        }
+
+
+
+//        carouselContainer.setVisibility(View.GONE);
 
         ProductSimulator productSimulator = new ProductSimulator();
         productsList = productSimulator.createProductoList();
