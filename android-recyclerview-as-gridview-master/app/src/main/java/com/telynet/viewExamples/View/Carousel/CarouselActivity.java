@@ -28,7 +28,7 @@ public class CarouselActivity extends AppCompatActivity {
 
         if(carouselAdapter == null){
             carouselAdapter = new CarouselProductAdapter(this, productsList);
-            carouselView.setAdapter(carouselAdapter);
+//            carouselView.setAdapter(carouselAdapter);
         }
     }
 

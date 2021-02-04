@@ -15,6 +15,7 @@ import com.telynet.viewExamples.R;
 import com.telynet.viewExamples.View.Carousel.Utility.CarouselAdapter;
 import com.telynet.viewExamples.View.Carousel.Utility.MarginDecoration;
 import com.telynet.viewExamples.View.Carousel.Utility.PreviewTransformer;
+import com.telynet.viewExamples.View.Grid.Utility.GridProductAdapter;
 
 public class CarouselView extends ViewGroup {
     private static final String TAG = CarouselView.class.getSimpleName();
@@ -32,6 +33,7 @@ public class CarouselView extends ViewGroup {
     private ViewPager2 viewPager2;
     private ViewPager2.OnPageChangeCallback onPageChangeCallback;
     private CarouselAdapter adapter;
+//    private GridProductAdapter adapter;
     private RecyclerView.AdapterDataObserver dataSetChangeObserver = new RecyclerView.AdapterDataObserver() {
         @Override
         public void onChanged() {
@@ -200,6 +202,7 @@ public class CarouselView extends ViewGroup {
     }
 
     public void setAdapter(CarouselAdapter adapter) {
+//    public void setAdapter(GridProductAdapter adapter) {
         if (adapter != null) {
             this.adapter = adapter;
             this.adapter.registerAdapterDataObserver(dataSetChangeObserver);
