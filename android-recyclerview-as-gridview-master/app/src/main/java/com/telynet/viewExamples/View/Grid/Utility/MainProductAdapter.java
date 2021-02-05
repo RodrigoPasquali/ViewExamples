@@ -1,26 +1,18 @@
 package com.telynet.viewExamples.View.Grid.Utility;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.Carousel.CarouselActivity;
-import com.telynet.viewExamples.View.CarouselAndActualItem.CarouselFragment;
-import com.telynet.viewExamples.View.CarouselAndActualItem.CarouselListProductActivity;
-import com.telynet.viewExamples.View.Grid.GridActivity;
 import com.telynet.viewExamples.View.ViewTypeLayout;
 
 import java.util.List;
@@ -28,14 +20,14 @@ import java.util.List;
 import static com.telynet.viewExamples.View.ViewTypeLayout.GRID_VIEW;
 
 //public class GridProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements CarouselFragment.CarouselFragmentListener {
-public class GridProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private LayoutInflater inflater;
     private List<Product> productsList;
     private Context context;
     private ViewTypeLayout viewTypeLayout;
 //    private CarouselFragment carouselFragment;
 
-    public GridProductAdapter(Context context, List<Product> products){
+    public MainProductAdapter(Context context, List<Product> products){
         productsList = products;
         inflater = LayoutInflater.from(context);
         viewTypeLayout = GRID_VIEW;
@@ -48,15 +40,6 @@ public class GridProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 //                        .commit();
     }
 
-    public void setViewTypeLayout(ViewTypeLayout viewTypeLayout) {
-        viewTypeLayout = viewTypeLayout;
-        notifyDataSetChanged();
-    }
-
-    public ViewTypeLayout getViewTypeLayout(){
-        return viewTypeLayout;
-    }
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -64,7 +47,6 @@ public class GridProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         switch (getViewTypeLayout()) {
             case GRID_VIEW:
-                System.out.println("11111111111111111111111111111111111111111111");
                 view = inflater.inflate(R.layout.custom_grid_layout,parent,false);
 
                 break;
@@ -80,8 +62,6 @@ public class GridProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             case CAROUSEL_WITH_ACTUAL_ITEM_VIEW:
                 view = inflater.inflate(R.layout.activity_carousel_list_product,parent,false);
 
-                System.out.println("3333333333333333333333333333333333333333333");
-
                 break;
         }
 
@@ -94,35 +74,55 @@ public class GridProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         switch (getViewTypeLayout()) {
             case GRID_VIEW:
-                GridViewHolder gridViewHolder = (GridViewHolder) holder;
-                gridViewHolder.tvTitle.setText(productsList.get(position).getTitle());
-                gridViewHolder.tvCode.setText(productsList.get(position).getCode());
-                gridViewHolder.gridIcon.setImageResource(productsList.get(position).getImage());
+                onBindGridViewHolder(holder, position);
 
                 break;
 
             case CAROUSEL_VIEW:
-//                CarouselViewHolder carouselViewHolder = (CarouselViewHolder) holder;
-//                carouselViewHolder.tvTitle.setText(productsList.get(position).getTitle());
-//                carouselViewHolder.tvCode.setText(productsList.get(position).getCode());
-//                carouselViewHolder.image.setImageResource(productsList.get(position).getImage());
+                onBindCarouselViewHolder(holder, position);
 
                 break;
 
             case CAROUSEL_WITH_ACTUAL_ITEM_VIEW:
+                onBindCarouselWithActualItemViewHolder(holder, position);
+                break;
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return productsList.size();
+    }
+
+    public void setViewTypeLayout(ViewTypeLayout viewTypeLayout) {
+        viewTypeLayout = viewTypeLayout;
+        notifyDataSetChanged();
+    }
+
+    public ViewTypeLayout getViewTypeLayout(){
+        return viewTypeLayout;
+    }
+
+    private void onBindGridViewHolder(RecyclerView.ViewHolder holder, int position) {
+        GridViewHolder gridViewHolder = (GridViewHolder) holder;
+        gridViewHolder.tvTitle.setText(productsList.get(position).getTitle());
+        gridViewHolder.tvCode.setText(productsList.get(position).getCode());
+        gridViewHolder.gridIcon.setImageResource(productsList.get(position).getImage());
+    }
+
+    private void onBindCarouselViewHolder(RecyclerView.ViewHolder holder, int position){
+//                CarouselViewHolder carouselViewHolder = (CarouselViewHolder) holder;
+//                carouselViewHolder.tvTitle.setText(productsList.get(position).getTitle());
+//                carouselViewHolder.tvCode.setText(productsList.get(position).getCode());
+//                carouselViewHolder.image.setImageResource(productsList.get(position).getImage());
+    }
+
+    private void onBindCarouselWithActualItemViewHolder(RecyclerView.ViewHolder holder, int position) {
 //                carouselWithActualItemViewHolder = (CarouselWithActualItemViewHolder) holder;
 //                carouselWithActualItemViewHolder.tvTitle.setText(productsList.get(position).getTitle());
 //                carouselWithActualItemViewHolder.tvCode.setText(productsList.get(position).getCode());
 //                carouselWithActualItemViewHolder.image.setImageResource(productsList.get(position).getImage());
 
-                break;
-        }
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return productsList.size();
     }
 
 //    @Override

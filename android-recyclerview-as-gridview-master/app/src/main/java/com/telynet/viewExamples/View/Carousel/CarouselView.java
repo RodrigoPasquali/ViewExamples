@@ -15,7 +15,6 @@ import com.telynet.viewExamples.R;
 import com.telynet.viewExamples.View.Carousel.Utility.CarouselAdapter;
 import com.telynet.viewExamples.View.Carousel.Utility.MarginDecoration;
 import com.telynet.viewExamples.View.Carousel.Utility.PreviewTransformer;
-import com.telynet.viewExamples.View.Grid.Utility.GridProductAdapter;
 
 public class CarouselView extends ViewGroup {
     private static final String TAG = CarouselView.class.getSimpleName();

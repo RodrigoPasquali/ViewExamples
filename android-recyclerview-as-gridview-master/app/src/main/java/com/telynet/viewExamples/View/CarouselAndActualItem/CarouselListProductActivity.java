@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.Grid.GridActivity;
+import com.telynet.viewExamples.View.Grid.MainActivity;
 
 public class CarouselListProductActivity extends AppCompatActivity implements CarouselFragment.CarouselFragmentListener {
     private CarouselFragment carouselFragment;
@@ -52,32 +52,19 @@ public class CarouselListProductActivity extends AppCompatActivity implements Ca
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent= new Intent (this, GridActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-//        intent.addFlags (Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent= new Intent (this, MainActivity.class);
         intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
 
         switch (item.getItemId()) {
             case R.id.gridViewOption:
-//                finish();
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
-
                 break;
 
             case R.id.carouselViewOption:
-//                finish();
                 startActivityForResult(intent, 0);
                 overridePendingTransition(0,0);
-
                 break;
-
-//            case R.id.carouselWithActualItemOption:
-//
-//
-//                break;
         }
 
         return super.onOptionsItemSelected(item);
