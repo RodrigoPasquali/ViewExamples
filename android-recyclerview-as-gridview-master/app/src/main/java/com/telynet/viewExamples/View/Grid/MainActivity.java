@@ -36,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout carouselContainer;
     private GridLayoutManager gridLayoutManager;
     private static final int COLUMN_GRID_WIDTH = 200;
+    private ViewTypeLayout viewTypeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         initProductList();
 
         initGridView();
@@ -49,12 +50,8 @@ public class MainActivity extends AppCompatActivity {
         initCarouselView();
         
         initRecyclerView(mainProductAdapter, gridLayoutManager);
-    }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        overridePendingTransition(0, 0);
+        initFirstTimeViewLayout();
     }
 
     @Override
@@ -69,19 +66,35 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.gridViewOption:
-                setGridView();
+                viewTypeLayout = ViewTypeLayout.GRID_VIEW;
                 break;
 
             case R.id.carouselViewOption:
-                setCarouselView();
+                viewTypeLayout = ViewTypeLayout.CAROUSEL_VIEW;
                 break;
 
             case R.id.carouselWithActualItemOption:
-                setCarouselWithActualitemView();
+                viewTypeLayout = ViewTypeLayout.CAROUSEL_WITH_ACTUAL_ITEM_VIEW;
                 break;
         }
 
+        initViewLayout(viewTypeLayout);
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initFirstTimeViewLayout() {
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+            viewTypeLayout = (ViewTypeLayout) bundle.getSerializable("viewTypeLayout");
+        }
+
+        if(viewTypeLayout == null) {
+            viewTypeLayout = viewTypeLayout.GRID_VIEW;
+        }
+
+        initViewLayout(viewTypeLayout);
     }
 
     private int calculateNumberOfColumns(Context context, float columnWidthDp) {
@@ -117,6 +130,22 @@ public class MainActivity extends AppCompatActivity {
         productsList = productSimulator.createProductoList();
     }
 
+    private void initViewLayout(ViewTypeLayout viewTypeLayout) {
+        switch (viewTypeLayout) {
+            case GRID_VIEW:
+                setGridView();
+                break;
+
+            case CAROUSEL_VIEW:
+                setCarouselView();
+                break;
+
+            case CAROUSEL_WITH_ACTUAL_ITEM_VIEW:
+                setCarouselWithActualitemView();
+                break;
+        }
+    }
+
     private void setGridView() {
         mainProductAdapter.setViewTypeLayout(ViewTypeLayout.GRID_VIEW);
         recyclerViewContainer.setVisibility(View.VISIBLE);
@@ -136,13 +165,10 @@ public class MainActivity extends AppCompatActivity {
         mainProductAdapter.setViewTypeLayout(ViewTypeLayout.CAROUSEL_WITH_ACTUAL_ITEM_VIEW);
 
         Intent intent= new Intent (this, CarouselListProductActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-//                intent.addFlags (Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
-//                finish();
         startActivityForResult(intent, 0);
         overridePendingTransition(0,0);
+
+        finish();
     }
 }

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
 import com.telynet.viewExamples.View.Grid.MainActivity;
+import com.telynet.viewExamples.View.ViewTypeLayout;
 
 public class CarouselListProductActivity extends AppCompatActivity implements CarouselFragment.CarouselFragmentListener {
     private CarouselFragment carouselFragment;
@@ -53,17 +54,22 @@ public class CarouselListProductActivity extends AppCompatActivity implements Ca
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent= new Intent (this, MainActivity.class);
-        intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
+        Bundle bundle = new Bundle();
 
         switch (item.getItemId()) {
             case R.id.gridViewOption:
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
+                bundle.putSerializable("viewTypeLayout", ViewTypeLayout.GRID_VIEW);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
                 break;
 
             case R.id.carouselViewOption:
-                startActivityForResult(intent, 0);
-                overridePendingTransition(0,0);
+                bundle.putSerializable("viewTypeLayout", ViewTypeLayout.CAROUSEL_VIEW);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+
                 break;
         }
 
