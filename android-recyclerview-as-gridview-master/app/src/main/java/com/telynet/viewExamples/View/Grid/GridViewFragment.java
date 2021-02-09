@@ -23,9 +23,6 @@ public class GridViewFragment extends Fragment {
     private GridProductAdapter gridProductAdapter;
     private List<Product> productsList;
 
-    public GridViewFragment() {
-    }
-
     public GridViewFragment(List<Product> products) {
         this.productsList = products;
     }

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.Util.ProductSimulator;
 import com.telynet.viewExamples.View.CarouselAndActualItem.Utility.CarouselAndActualItemAdapter;
 
 import java.util.List;
@@ -20,23 +19,33 @@ import java.util.List;
 public class CarouselFragment extends Fragment {
     private CarouselAndActualItemAdapter carouselAndActualItemAdapter;
     CarouselFragmentListener mCallback;
+    private List<Product> productsList;
 
     public interface CarouselFragmentListener {
         void onProductSelected(Product product);
     }
 
-    public CarouselFragment(){};
+    public CarouselFragment(List<Product> products, Fragment fragment) {
+        this.productsList = products;
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mCallback = (CarouselFragmentListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
-        }
+        mCallback = (CarouselFragmentListener) fragment;
     }
+
+    public CarouselFragment() {
+    }
+
+//    @Override
+//    public void onAttach(Activity activity) {
+//        super.onAttach(activity);
+//        try {
+//            mCallback = (CarouselFragmentListener) activity;
+//        } catch (ClassCastException e) {
+////            throw new ClassCastException(activity.toString()
+////                    + " must implement OnHeadlineSelectedListener");
+//            throw new ClassCastException(activity.toString()
+//                    + " estalle en CarouselFragment");
+//        }
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,8 +58,8 @@ public class CarouselFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
 
-        ProductSimulator productSimulator = new ProductSimulator();
-        List<Product> productsList = productSimulator.createProductoList();
+//        ProductSimulator productSimulator = new ProductSimulator();
+//        List<Product> productsList = productSimulator.createProductoList();
 
         carouselAndActualItemAdapter = new CarouselAndActualItemAdapter(getContext(), productsList,this);
 
