@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/gridViewOption" android:title="Grid"></item>
+    <item android:id="@+id/carouselViewOption" android:title="Carousel"></item>
+    <item android:id="@+id/carouselWithActualItemOption" android:title="Carousel + Item Actual"></item>
+</menu>
