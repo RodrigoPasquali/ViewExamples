@@ -7,6 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".View.Grid.MainActivity">
 
+
+    <FrameLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_eye_views" />
+    <!--
+    <FrameLayout
+        android:id="@+id/carousel_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.telynet.viewExamples.View.Carousel.CarouselView
+            android:id="@+id/carousel_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:carouselMargin="10dp"
+            app:carouselMode="preview"
+            app:carouselPreviewOffset="30dp"
+            app:carouselPreviewSide="sides"
+            app:carouselPreviewSideBySideStyle="scale"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </FrameLayout>
+
     <FrameLayout
         android:id="@+id/recycler_view_container"
         android:layout_width="match_parent"
@@ -24,27 +71,7 @@
             app:layout_constraintStart_toStartOf="parent" />
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/carousel_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    -->
 
-        <com.telynet.viewExamples.View.Carousel.CarouselView
-            android:id="@+id/carousel_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:carouselMargin="10dp"
-            app:carouselMode="preview"
-            app:carouselPreviewOffset="30dp"
-            app:carouselPreviewSide="sides"
-            app:carouselPreviewSideBySideStyle="scale"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_margin="10dp"/>
-    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
