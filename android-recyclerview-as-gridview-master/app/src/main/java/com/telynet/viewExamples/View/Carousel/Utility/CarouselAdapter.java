@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class CarouselAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
-//public interface CarouselAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
-
     @NonNull
     @Override
     public final VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -1,6 +1,5 @@
-package com.telynet.viewExamples.View.CarouselAndActualItem;
+package com.telynet.viewExamples.View.CarouselWithActualItem;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.CarouselAndActualItem.Utility.CarouselAndActualItemAdapter;
+import com.telynet.viewExamples.View.CarouselWithActualItem.Utility.CarouselWithActualItemAdapter;
 
 import java.util.List;
 
 public class CarouselFragment extends Fragment {
-    private CarouselAndActualItemAdapter carouselAndActualItemAdapter;
+    private CarouselWithActualItemAdapter carouselWithActualItemAdapter;
     CarouselFragmentListener mCallback;
     private List<Product> productsList;
 
@@ -61,12 +60,12 @@ public class CarouselFragment extends Fragment {
 //        ProductSimulator productSimulator = new ProductSimulator();
 //        List<Product> productsList = productSimulator.createProductoList();
 
-        carouselAndActualItemAdapter = new CarouselAndActualItemAdapter(getContext(), productsList,this);
+        carouselWithActualItemAdapter = new CarouselWithActualItemAdapter(getContext(), productsList,this);
 
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setAdapter(carouselAndActualItemAdapter);
+        recyclerView.setAdapter(carouselWithActualItemAdapter);
 
         return view;
     }

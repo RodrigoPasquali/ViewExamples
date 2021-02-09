@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.CarouselAndActualItem.CarouselWithActualItemViewFragment">
+    tools:context=".View.CarouselWithActualItem.CarouselWithActualItemViewFragment">
 
-    <include layout="@layout/activity_carousel_list_product"/>
+    <include layout="@layout/item_carousel_actual_item"/>
 </FrameLayout>

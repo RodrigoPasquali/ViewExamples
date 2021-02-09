@@ -24,12 +24,6 @@ public class CarouselViewFragment extends Fragment {
         this.productsList = products;
     }
 
-//    public static CarouselViewFragment newInstance(String param1, String param2) {
-//        CarouselViewFragment fragment = new CarouselViewFragment();
-//
-//        return fragment;
-//    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

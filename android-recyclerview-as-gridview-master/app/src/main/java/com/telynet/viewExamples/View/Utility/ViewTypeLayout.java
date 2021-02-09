@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View;
+package com.telynet.viewExamples.View.Utility;
 
 public enum ViewTypeLayout {
     GRID_VIEW(0),

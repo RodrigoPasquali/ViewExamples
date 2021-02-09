@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View.Grid;
+package com.telynet.viewExamples.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -11,9 +11,10 @@ import android.view.MenuItem;
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.Util.ProductSimulator;
 import com.telynet.viewExamples.View.Carousel.CarouselViewFragment;
-import com.telynet.viewExamples.View.CarouselAndActualItem.CarouselWithActualItemViewFragment;
+import com.telynet.viewExamples.View.CarouselWithActualItem.CarouselWithActualItemViewFragment;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.ViewTypeLayout;
+import com.telynet.viewExamples.View.Grid.GridViewFragment;
+import com.telynet.viewExamples.View.Utility.ViewTypeLayout;
 
 import java.util.List;
 

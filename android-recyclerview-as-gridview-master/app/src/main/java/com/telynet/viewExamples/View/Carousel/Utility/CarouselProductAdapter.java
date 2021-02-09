@@ -28,7 +28,7 @@ public class CarouselProductAdapter extends CarouselAdapter<CarouselProductAdapt
 
     @Override
     public ViewHolder onCreatePageViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.custom_carousel_layout, parent,false);
+        View view = inflater.inflate(R.layout.item_carousel_layout, parent,false);
         view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         return new ViewHolder(view);

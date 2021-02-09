@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View.CarouselAndActualItem.Utility;
+package com.telynet.viewExamples.View.CarouselWithActualItem.Utility;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -15,18 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.telynet.viewExamples.Model.Product;
 import com.telynet.viewExamples.R;
-import com.telynet.viewExamples.View.CarouselAndActualItem.CarouselFragment;
+import com.telynet.viewExamples.View.CarouselWithActualItem.CarouselFragment;
 
 import java.util.List;
 
-public class CarouselAndActualItemAdapter extends RecyclerView.Adapter<CarouselAndActualItemAdapter.ViewHolder> {
+public class CarouselWithActualItemAdapter extends RecyclerView.Adapter<CarouselWithActualItemAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private List<Product> productsList;
     private Product actualProduct;
     private CarouselFragment carouselFragment;
     private int itemPosition;
 
-    public CarouselAndActualItemAdapter(Context context, List<Product> products, CarouselFragment carouselFragment){
+    public CarouselWithActualItemAdapter(Context context, List<Product> products, CarouselFragment carouselFragment){
         this.productsList = products;
         this.inflater = LayoutInflater.from(context);
         this.carouselFragment = carouselFragment;
@@ -39,7 +39,7 @@ public class CarouselAndActualItemAdapter extends RecyclerView.Adapter<CarouselA
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.custom_carousel_item_layout,parent,false);
+        View view = inflater.inflate(R.layout.item_of_carousel_layout,parent,false);
 
         return new ViewHolder(view);
     }

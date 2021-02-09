@@ -1,4 +1,4 @@
-package com.telynet.viewExamples.View.CarouselAndActualItem;
+package com.telynet.viewExamples.View.CarouselWithActualItem;
 
 import android.os.Bundle;
 
